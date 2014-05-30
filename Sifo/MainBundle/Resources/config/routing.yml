@@ -1,0 +1,14 @@
+sifo_main_homepage:
+    pattern:  /main
+    defaults: { _controller: SifoMainBundle:Default:index }
+
+sifo_main_studentpage:
+    pattern:  /student
+    defaults: { _controller: SifoMainBundle:Default:student }
+    
+sifo_main_teacherpage:
+    pattern:  /teacher
+    defaults: { _controller: SifoMainBundle:Default:teacher }
+
+
+

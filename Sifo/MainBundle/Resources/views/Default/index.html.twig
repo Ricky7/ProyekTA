@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head><title>SMK Negeri 11 Medan</title>
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap-responsive.css')}}">
+    <head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                {#<h1><center>Header</h1>#}
+                <img src="{{asset('bundles/sifoadmin/image/elearning.jpg')}}" class="img-responsive img-thumbnail" alt="Responsive image logo">
+
+            </div>
+            <div class="row">
+                {% block sesi %}
+                    <p align="right" class="pull_center">
+                        <font color="red">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </font>
+                        <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+                    </p>
+                {%endblock%}
+            </div>
+        </div>
+
+        <script src="{{asset('bundles/sifoadmin/js/bootstrap.js')}}"></script>
+        <script src="{{asset('bundles/sifoadmin/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('bundles/sifoadmin/js/jquery-2.1.0.js')}}"></script>    
+    </body>
+</html>

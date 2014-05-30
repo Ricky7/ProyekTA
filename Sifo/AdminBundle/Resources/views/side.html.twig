@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Admin</title>
+
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap-responsive.css')}}">
+
+
+        {%block stylesheets%}
+        {%endblock%}
+        <style type="text/css">
+        .well {
+            max-width: 250px;
+            padding: 19px 29px 29px;
+            margin: 0 auto 20px;
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        }
+        .form-signin .form-signin-heading,
+        .form-signin .checkbox {
+            margin-bottom: 10px;
+        }
+        .form-signin input[type="text"],
+        .form-signin input[type="password"] {
+            font-size: 14px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .page_header h5{
+            color: #fff;
+            font:normal 50px fontsatu;
+        }
+
+    </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                {#<h1><center>Header</h1>#}
+                <img src="{{asset('bundles/sifoadmin/image/header.jpg')}}" class="img-responsive img-thumbnail" alt="Responsive image">
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                        <h4>Menu</h4>
+                        <ul class="nav navbar-nav">
+                            <a href="#"><li>menu 1</li></a>
+                            <a href="#"><li>menu 2</li></a>
+                            <a href="#"><li>menu 3</li></a>
+                            <a href="#"><li>menu 4</li></a>
+                            <a href="#"><li>menu 5</li></a>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    {%block main%}
+                    {%endblock%}
+                </div>
+            </div>
+
+            <div class="row">
+
+            </div>
+        </div>
+
+
+        <script src="{{asset('bundles/sifoadmin/js/bootstrap.js')}}"></script>
+        <script src="{{asset('bundles/sifoadmin/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('bundles/sifoadmin/js/jquery-2.1.0.js')}}"></script>
+    </body>
+</html>
+

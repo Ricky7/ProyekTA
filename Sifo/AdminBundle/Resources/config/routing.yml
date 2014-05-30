@@ -1,0 +1,11 @@
+sifo_admin_homepage:
+    pattern:  /
+    defaults: { _controller: SifoAdminBundle:Default:index }
+
+logout:
+    pattern:  /admlogout
+    defaults: { _controller: SifoAdminBundle:Default:adminlogout }
+    
+sifo_admin_signup:
+    pattern:  /signup
+    defaults: { _controller: SifoAdminBundle:Default:signup }

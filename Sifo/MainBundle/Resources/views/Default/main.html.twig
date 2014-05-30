@@ -1,0 +1,7 @@
+{% extends 'SifoMainBundle:Default:index.html.twig' %}
+
+{%block sesi%}
+{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} 
+<a href="{{ path('fos_user_security_logout') }}">Logout</a>
+{%endblock%}
+

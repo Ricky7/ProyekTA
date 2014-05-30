@@ -1,0 +1,7 @@
+parameters:
+    sifo_main_userprovider.class: Sifo\MainBundle\Security\Core\User\FOSUBUserProvider
+
+services:
+    sifo_main_userprovider:
+        class: %sifo_main_userprovider.class%
+        arguments: [@fos_user.user_manager, {facebook: facebookId}]
