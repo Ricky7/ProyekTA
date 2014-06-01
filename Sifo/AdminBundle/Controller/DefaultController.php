@@ -26,7 +26,7 @@ class DefaultController extends Controller {
                     $login->setPassword($password);
                     $session->set('login', $login);
                 }
-                return $this->render('SifoAdminBundle:Default:main.html.twig', array('name' => $user->getFirstName()));
+                return $this->render('SifoAdminBundle:Admin:adminhome.html.twig', array('name' => $user->getFirstName()));
             } else {
                 return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Login Error!!'));
             }
@@ -119,6 +119,108 @@ class DefaultController extends Controller {
           $em->flush();
           } */
         return $this->render('SifoAdminBundle:Default:signup.html.twig');
+    }
+    
+    public function adminhomeAction(Request $request) 
+    {
+        //$session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('SifoAdminBundle:Admin');
+        $session = $this->getRequest()->getSession();
+        if ($session->has('login')) {
+                $login = $session->get('login');
+                $username = $login->getUsername();
+                $password = $login->getPassword();
+                $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
+                if ($user) {
+                    return $this->render('SifoAdminBundle:Admin:adminhome.html.twig', array('name' => $user->getFirstName()));
+                }
+            }
+        return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));
+    }
+    
+    public function dataguruAction(Request $request) 
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('SifoAdminBundle:Admin');
+        $session = $this->getRequest()->getSession();
+        if ($session->has('login')) {
+                $login = $session->get('login');
+                $username = $login->getUsername();
+                $password = $login->getPassword();
+                $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
+                if ($user) {
+                    return $this->render('SifoAdminBundle:Admin:dataguru.html.twig', array('name' => $user->getFirstName()));
+                }
+            }
+        return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));
+    }
+    
+    public function datasiswaAction(Request $request) 
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('SifoAdminBundle:Admin');
+        $session = $this->getRequest()->getSession();
+        if ($session->has('login')) {
+                $login = $session->get('login');
+                $username = $login->getUsername();
+                $password = $login->getPassword();
+                $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
+                if ($user) {
+                    return $this->render('SifoAdminBundle:Admin:datasiswa.html.twig', array('name' => $user->getFirstName()));
+                }
+            }
+        return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));
+    }
+    
+    public function datakelasAction(Request $request) 
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('SifoAdminBundle:Admin');
+        $session = $this->getRequest()->getSession();
+        if ($session->has('login')) {
+                $login = $session->get('login');
+                $username = $login->getUsername();
+                $password = $login->getPassword();
+                $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
+                if ($user) {
+                    return $this->render('SifoAdminBundle:Admin:datakelas.html.twig', array('name' => $user->getFirstName()));
+                }
+            }
+        return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));
+    }
+    
+    public function databeritaAction(Request $request) 
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('SifoAdminBundle:Admin');
+        $session = $this->getRequest()->getSession();
+        if ($session->has('login')) {
+                $login = $session->get('login');
+                $username = $login->getUsername();
+                $password = $login->getPassword();
+                $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
+                if ($user) {
+                    return $this->render('SifoAdminBundle:Admin:databerita.html.twig', array('name' => $user->getFirstName()));
+                }
+            }
+        return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));
+    }
+    public function dataadminAction(Request $request) 
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('SifoAdminBundle:Admin');
+        $session = $this->getRequest()->getSession();
+        if ($session->has('login')) {
+                $login = $session->get('login');
+                $username = $login->getUsername();
+                $password = $login->getPassword();
+                $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
+                if ($user) {
+                    return $this->render('SifoAdminBundle:Admin:dataadmin.html.twig', array('name' => $user->getFirstName()));
+                }
+            }
+        return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));
     }
 
 }

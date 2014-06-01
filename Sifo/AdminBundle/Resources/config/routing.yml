@@ -9,3 +9,27 @@ logout:
 sifo_admin_signup:
     pattern:  /signup
     defaults: { _controller: SifoAdminBundle:Default:signup }
+
+admin_home:
+    pattern: /home
+    defaults: { _controller: SifoAdminBundle:Default:adminhome }
+    
+admin_dataguru:
+    pattern: /dataguru
+    defaults: { _controller: SifoAdminBundle:Default:dataguru }
+    
+admin_datasiswa:
+    pattern: /datasiswa
+    defaults: { _controller: SifoAdminBundle:Default:datasiswa }
+    
+admin_datakelas:
+    pattern: /datakelas
+    defaults: { _controller: SifoAdminBundle:Default:datakelas }
+
+admin_dataadmin:
+    pattern: /dataadmin
+    defaults: { _controller: SifoAdminBundle:Default:dataadmin }
+    
+admin_databerita:
+    pattern: /databerita
+    defaults: { _controller: SifoAdminBundle:Default:databerita }

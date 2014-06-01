@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Login</title>
+        <title>Elearning SMK Negeri 11 Medan</title>
 
         <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap.css')}}">
         <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap-responsive.css')}}">
-
-
         {%block stylesheets%}
         {%endblock%}
     </head>
     <body>
         <div class="container-fluid">
             <div class="row">
-                {#<h1><center>Header</h1>#}
                 <img src="{{asset('bundles/sifoadmin/image/header.jpg')}}" class="img-responsive img-thumbnail" alt="Responsive image">
-
             </div>
-
+            
             <div class="row">
                 <div class="col-md-3">
-                    {%block main%}
-                    {%endblock%}
-                    {%block menu%} {%endblock%}
+                    {%block main%}{%endblock%}
+                    {%block menu%}{%endblock%}
                 </div>
 
                 <div class="col-md-9">
@@ -35,7 +30,6 @@
                 
             </div>
         </div>
-
 
         <script src="{{asset('bundles/sifoadmin/js/bootstrap.js')}}"></script>
         <script src="{{asset('bundles/sifoadmin/js/bootstrap.min.js')}}"></script>

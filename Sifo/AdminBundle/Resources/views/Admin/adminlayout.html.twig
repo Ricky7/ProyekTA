@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Administrator</title>
+
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap-responsive.css')}}">
+        {%block stylesheets%}
+        {%endblock%}
+        <script src="{{asset('bundles/sifoadmin/js/jquery.min.js')}}"></script>
+        <script src="{{asset('bundles/sifoadmin/js/bootstrap.min.js')}}"></script>
+        {#<script src="{{asset('bundles/sifoadmin/js/bootstrap.js')}}"></script>#}
+        {#<script src="{{asset('bundles/sifoadmin/js/jquery-2.1.0.js')}}"></script>#}
+    </head>
+    <body>
+        <div class="container-fluid">
+            
+            {# --------------- header --------------- #}
+            <div class="row">
+                <center><a href="{{ path('admin_home') }}"><img src="{{asset('bundles/sifoadmin/image/Hadmin2.jpg')}}" class="img-responsive img-thumbnail" alt="Responsive image" style="border-style: none"></a></center>
+            </div>
+            
+            {# --------------- menu --------------- #}
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <hr>
+                    <ul class="nav nav-pills nav-justified">
+                        <li><a href="{{ path('admin_home') }}">Home</a></li>
+                        <li><a href="{{ path('admin_dataguru') }}">Data Guru</a></li>
+                        <li><a href="{{ path('admin_datasiswa') }}">Data Siswa</a></li>
+                        <li><a href="{{ path('admin_datakelas') }}">Data Kelas</a></li>
+                        <li><a href="{{ path('admin_dataadmin') }}">Data Admin</a></li>
+                        <li><a href="{{ path('admin_databerita') }}">Berita</a></li>
+                    </ul>
+                    <hr>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+                            
+            {# --------------- konten --------------- #}
+            <div class="row">
+                <div class="col-md-1">
+                    {%block menu%}{%endblock%}
+                </div>
+                <div class="col-md-10">
+                    {%block main%}{%endblock%}
+                </div>
+                <div class="col-md-1">
+                    
+                </div>
+            </div>
+            
+            {# --------------- footer --------------- #}
+            <div class="footer">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <hr>
+                    <p class="muted pull-left">
+                        Anda Login Sebagai {{name}} (<a href="{{ path('logout') }}">Logout</a></center>)
+                    </p>
+                    <p class="muted pull-right">© 2014 Mikroskil. All rights reserved</p>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+ 
+    </body>
+</html>
+
