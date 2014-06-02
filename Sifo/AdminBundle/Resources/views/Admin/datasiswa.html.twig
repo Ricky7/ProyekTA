@@ -1,5 +1,22 @@
 {% extends 'SifoAdminBundle:Admin:adminlayout.html.twig' %}
 
 {%block main%}
-    <center>Ini halaman Data Siswa!!</center>
+    <p class="pull-center">
+        <form class="well" id="form" method="POST" action="{{ path('admin_datasiswa') }}">
+            <fieldset>
+                <legend>Daftarkan Siswa</legend>
+                <label class="control-label">Username:</label>
+                    <input type="text" id="username" name="username">
+                <label class="control-label">Password:</label>
+                    <input type="text" id="password" name="password">
+                <label class="control-label">Email:</label>
+                    <input type="text" id="email" name="email">
+                <label class="control-label">Role: <b><font color="blue">Siswa</font></b></label>
+                    <input type="hidden" id="roles" name="roles" value="ROLE_STUDENT">
+                <div align="center">
+                    <br><button type="submit" class="btn btn-primary" >Tambah</button>
+                </div>
+            </fieldset>
+        </form>
+    </p>
 {%endblock%}

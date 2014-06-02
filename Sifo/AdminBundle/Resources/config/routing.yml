@@ -33,11 +33,3 @@ admin_dataadmin:
 admin_databerita:
     pattern: /databerita
     defaults: { _controller: SifoAdminBundle:Default:databerita }
-    
-daftar_admin:
-    pattern: /dataadmin
-    defaults: { _controller: SifoAdminBundle:Default:adminReg }
-    
-daftar_guru_regis:
-    pattern: /dataguru
-    defaults: { _controller: SifoAdminBundle:Default:gururegis }

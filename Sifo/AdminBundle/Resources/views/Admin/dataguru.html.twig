@@ -1,23 +1,22 @@
 {% extends 'SifoAdminBundle:Admin:adminlayout.html.twig' %}
 
 {%block main%}
-    <center>Ini halaman Data Guru!!</center>
     <p class="pull-center">
-    <form class="well" id="form" method="POST" action="{{ path('daftar_guru_regis') }}">
-        <fieldset>
-            <legend>Registration Form</legend>
-            <label class="control-label">Username:</label>
-                <input type="text" id="username" name="username">
-            <label class="control-label">Password:</label>
-                <input type="text" id="password" name="password">
-            <label class="control-label">Email:</label>
-                <input type="text" id="email" name="email">
-            <label class="control-label">Role: <b>Guru</b></label>
-                <input type="hidden" id="roles" name="roles" value="ROLE_TEACHER">
-            <div align="center">
-                <br><button type="submit" class="btn btn-primary" >Tambah</button>
-            </div>
-        </fieldset>
-    </form>
-</p>
+        <form class="well" id="form" method="POST" action="{{ path('admin_dataguru') }}">
+            <fieldset>
+                <legend>Form Pendaftaran Guru</legend>
+                <label class="control-label">Username:</label>
+                    <input type="text" id="username" name="username">
+                <label class="control-label">Password:</label>
+                    <input type="text" id="password" name="password">
+                <label class="control-label">Email:</label>
+                    <input type="text" id="email" name="email">
+                <label class="control-label">Role: <b><font color="blue">Guru</font></b></label>
+                    <input type="hidden" id="roles" name="roles" value="ROLE_TEACHER">
+                <div align="center">
+                    <br><button type="submit" class="btn btn-primary" >Tambah</button>
+                </div>
+            </fieldset>
+        </form>
+    </p>
 {%endblock%}
