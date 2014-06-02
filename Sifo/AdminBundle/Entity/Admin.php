@@ -80,4 +80,32 @@ class Admin
     {
         return $this->userName;
     }
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Set userName
+     *
+     * @param string $userName
+     * @return Admin
+     */
+    public function setUserName($userName)
+    {
+        $this->userName = $userName;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
