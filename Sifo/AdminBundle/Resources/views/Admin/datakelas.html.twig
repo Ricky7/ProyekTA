@@ -19,16 +19,23 @@
     <p class="pull-center">
         Data Admin
         <table>
-            
-            <tbody>
-                
+            <thead>
                 <tr>
-                    
-                        <td>{{dump(entities)}}</td>
-                        
+                    <th>No</th>
+                    <th>Kode Kelas</th>
+                    <th>Nama Kelas</th>
                 </tr>
-                
+            </thead>
+            <tbody>
+                {% for view in kelas %}
+                <tr>
+                    <td>{{view.id}}</td>
+                    <td>{{view.kodeKelas}}</td>
+                    <td>{{view.namaKelas}}</td>
+                </tr>
+                {%endfor%}
             </tbody>
+        
         </table>
     </p>
 {%endblock%}

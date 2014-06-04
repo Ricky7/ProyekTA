@@ -254,12 +254,16 @@ class DefaultController extends Controller {
                 $password = $login->getPassword();
                 $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
                 if ($user) {
-                    $em = $this->getDoctrine()->getManager();
-
-                    $entities = $em->getRepository('SifoAdminBundle:Kelas')->findAll();
-
-                    
-                    return $this->render('SifoAdminBundle:Admin:datakelas.html.twig', array('name' => $user->getFirstName(),'entities' => $entities));
+                    $kelas = $this->getDoctrine()
+                                ->getRepository('SifoAdminBundle:Kelas')
+                                ->findAll();
+                            if (!$kelas) {
+                              throw $this->createNotFoundException('No data found');
+                            }
+    
+                    //$build['kelas'] = $kelas;
+                    //return $this->render('FooNewsBundle:Default:news_show_all.html.twig', $build);
+                    return $this->render('SifoAdminBundle:Admin:datakelas.html.twig', array('name' => $user->getFirstName(),'kelas' => $kelas));
                 }
             }
         return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));
