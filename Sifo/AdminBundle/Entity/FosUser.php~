@@ -100,6 +100,31 @@ class FosUser
     private $facebookAccessToken;
 
     /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $class;
+
+    /**
+     * @var integer
+     */
+    private $noId;
+
+    /**
+     * @var string
+     */
+    private $jurusan;
+
+    /**
+     * @var string
+     */
+    private $mataPelajaran;
+
+    /**
      * @var integer
      */
     private $userId;
@@ -517,6 +542,121 @@ class FosUser
     public function getFacebookAccessToken()
     {
         return $this->facebookAccessToken;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return FosUser
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set class
+     *
+     * @param string $class
+     * @return FosUser
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return string 
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
+     * Set noId
+     *
+     * @param integer $noId
+     * @return FosUser
+     */
+    public function setNoId($noId)
+    {
+        $this->noId = $noId;
+
+        return $this;
+    }
+
+    /**
+     * Get noId
+     *
+     * @return integer 
+     */
+    public function getNoId()
+    {
+        return $this->noId;
+    }
+
+    /**
+     * Set jurusan
+     *
+     * @param string $jurusan
+     * @return FosUser
+     */
+    public function setJurusan($jurusan)
+    {
+        $this->jurusan = $jurusan;
+
+        return $this;
+    }
+
+    /**
+     * Get jurusan
+     *
+     * @return string 
+     */
+    public function getJurusan()
+    {
+        return $this->jurusan;
+    }
+
+    /**
+     * Set mataPelajaran
+     *
+     * @param string $mataPelajaran
+     * @return FosUser
+     */
+    public function setMataPelajaran($mataPelajaran)
+    {
+        $this->mataPelajaran = $mataPelajaran;
+
+        return $this;
+    }
+
+    /**
+     * Get mataPelajaran
+     *
+     * @return string 
+     */
+    public function getMataPelajaran()
+    {
+        return $this->mataPelajaran;
     }
 
     /**

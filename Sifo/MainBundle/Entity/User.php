@@ -4,6 +4,7 @@ namespace Sifo\MainBundle\Entity;
 use FOS\UserBundle\Entity\User as BaseUser;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -19,6 +20,49 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     * @var integer
+     * 
+     * @ORM\Column(name="no_id",type="integer")
+     *
+     */
+    protected $no_id;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max="255",
+     *     minMessage="The name is too short.",
+     *     maxMessage="The name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
+     */
+    protected $name;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="class", type="string", length=255,nullable=true)
+     */
+    protected $class;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="jurusan", type="string", length=255,nullable=true)
+     */
+    protected $jurusan;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mata_pelajaran", type="string", length=255,nullable=true)
+     */
+    protected $mataPelajaran;
 
     /**
      * @var integer
@@ -100,5 +144,120 @@ class User extends BaseUser
     public function getFacebookAccessToken()
     {
         return $this->facebookAccessToken;
+    }
+
+    /**
+     * Set no_id
+     *
+     * @param integer $noId
+     * @return User
+     */
+    public function setNoId($noId)
+    {
+        $this->no_id = $noId;
+
+        return $this;
+    }
+
+    /**
+     * Get no_id
+     *
+     * @return integer 
+     */
+    public function getNoId()
+    {
+        return $this->no_id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set class
+     *
+     * @param string $class
+     * @return User
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return string 
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
+     * Set jurusan
+     *
+     * @param string $jurusan
+     * @return User
+     */
+    public function setJurusan($jurusan)
+    {
+        $this->jurusan = $jurusan;
+
+        return $this;
+    }
+
+    /**
+     * Get jurusan
+     *
+     * @return string 
+     */
+    public function getJurusan()
+    {
+        return $this->jurusan;
+    }
+
+    /**
+     * Set mataPelajaran
+     *
+     * @param string $mataPelajaran
+     * @return User
+     */
+    public function setMataPelajaran($mataPelajaran)
+    {
+        $this->mataPelajaran = $mataPelajaran;
+
+        return $this;
+    }
+
+    /**
+     * Get mataPelajaran
+     *
+     * @return string 
+     */
+    public function getMataPelajaran()
+    {
+        return $this->mataPelajaran;
     }
 }

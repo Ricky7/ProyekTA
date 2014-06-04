@@ -10,6 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Admin
 {
     /**
+     * @var integer
+     */
+    private $id;
+    
+    /**
      * @var string
      */
     private $firstName;
@@ -80,10 +85,7 @@ class Admin
     {
         return $this->userName;
     }
-    /**
-     * @var integer
-     */
-    private $id;
+    
 
 
     /**

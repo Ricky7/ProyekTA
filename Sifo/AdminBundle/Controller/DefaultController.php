@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sifo\AdminBundle\Modals\Login;
 use Sifo\AdminBundle\Entity\FosUser;
 use Sifo\AdminBundle\Entity\Admin;
+use Sifo\AdminBundle\Entity\Kelas;
 
 class DefaultController extends Controller {
 
@@ -147,16 +148,23 @@ class DefaultController extends Controller {
             $userManager = $this->get('fos_user.user_manager');
             $username = $request->get('username');
             $password = $request->get('password');
+            $name = $request->get('name');
+            $nip = $request->get('nip');
             $email = $request->get('email');
             $roles = $request->get('roles');
+            $mapel = $request->get('mapel');
 
             $user = $userManager->createUser();
             $user->setUsername($username);
             $user->setPlainPassword($password);
             $userManager->updatePassword($user);
+            
             $user->setEmail($email);
             $user->setEnabled(true);
             $user->setRoles(array($roles));
+            $user->setName($name);
+            $user->setNoId($nip);
+            $user->setMataPelajaran($mapel);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
@@ -186,8 +194,11 @@ class DefaultController extends Controller {
             $userManager = $this->get('fos_user.user_manager');
             $username = $request->get('username');
             $password = $request->get('password');
+            $name = $request->get('name');
+            $nis = $request->get('nis');
             $email = $request->get('email');
             $roles = $request->get('roles');
+            $jurusan = $request->get('jurusan');
 
             $user = $userManager->createUser();
             $user->setUsername($username);
@@ -196,6 +207,9 @@ class DefaultController extends Controller {
             $user->setEmail($email);
             $user->setEnabled(true);
             $user->setRoles(array($roles));
+            $user->setName($name);
+            $user->setNoId($nis);
+            $user->setJurusan($jurusan);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
@@ -218,6 +232,19 @@ class DefaultController extends Controller {
     
     public function datakelasAction(Request $request) 
     {
+        if($request->getMethod()=='POST'){
+            $kode=$request->get('kode');
+            $name=$request->get('nama');
+            
+            $user = new Kelas();
+            $user->setKodeKelas($kode);
+            $user->setNamaKelas($name);
+            
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($user);
+            $em->flush();
+        }
+        
         $em = $this->getDoctrine()->getEntityManager();
         $repository = $em->getRepository('SifoAdminBundle:Admin');
         $session = $this->getRequest()->getSession();
@@ -227,7 +254,12 @@ class DefaultController extends Controller {
                 $password = $login->getPassword();
                 $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
                 if ($user) {
-                    return $this->render('SifoAdminBundle:Admin:datakelas.html.twig', array('name' => $user->getFirstName()));
+                    $em = $this->getDoctrine()->getManager();
+
+                    $entities = $em->getRepository('SifoAdminBundle:Kelas')->findAll();
+
+                    
+                    return $this->render('SifoAdminBundle:Admin:datakelas.html.twig', array('name' => $user->getFirstName(),'entities' => $entities));
                 }
             }
         return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));
@@ -266,6 +298,7 @@ class DefaultController extends Controller {
             $em->flush();
             
         }
+        
         //return $this->render('SifoAdminBundle:Admin:dataadmin.html.twig');
         $em = $this->getDoctrine()->getEntityManager();
         $repository = $em->getRepository('SifoAdminBundle:Admin');
@@ -276,7 +309,15 @@ class DefaultController extends Controller {
                 $password = $login->getPassword();
                 $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
                 if ($user) {
-                    return $this->render('SifoAdminBundle:Admin:dataadmin.html.twig', array('name' => $user->getFirstName()));
+                    
+                    $em = $this->getDoctrine()->getEntityManager();
+                    $query = $em->createQueryBuilder()
+                        
+                        ->select('c')
+                        ->from('SifoAdminBundle:Admin', 'c');
+                    $FinalQuery = $query->getQuery();
+                    $count = $FinalQuery->getArrayResult();
+                    return $this->render('SifoAdminBundle:Admin:dataadmin.html.twig', array('name' => $user->getFirstName(),'count'=>$count));
                 }
             }
         return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));

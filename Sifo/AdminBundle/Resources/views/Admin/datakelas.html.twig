@@ -1,5 +1,34 @@
 {% extends 'SifoAdminBundle:Admin:adminlayout.html.twig' %}
 
 {%block main%}
-    <center>Ini halaman Data Kelas!!</center>
+    <p class="pull-center">
+        <form class="well" id="form" method="POST" action="{{ path('admin_datakelas') }}">
+            <fieldset>
+                <legend>Tambahkan Kelas</legend>
+                <label class="control-label">Kode Kelas :</label>
+                    <input type="text" id="kode" name="kode">
+                <label class="control-label">Nama Kelas :</label>
+                    <input type="text" id="nama" name="nama">
+                <div align="center">
+                    <br><button type="submit" class="btn btn-primary" >Tambah</button>
+                </div>
+            </fieldset>
+        </form>
+    </p>
+    <hr>
+    <p class="pull-center">
+        Data Admin
+        <table>
+            
+            <tbody>
+                
+                <tr>
+                    
+                        <td>{{dump(entities)}}</td>
+                        
+                </tr>
+                
+            </tbody>
+        </table>
+    </p>
 {%endblock%}

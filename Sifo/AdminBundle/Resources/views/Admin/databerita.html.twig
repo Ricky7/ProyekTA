@@ -1,5 +1,31 @@
 {% extends 'SifoAdminBundle:Admin:adminlayout.html.twig' %}
 
+{%block stylesheets%}
+        <script type="text/javascript" src="{{asset('bundles/sifoadmin/js/tinymce/tiny_mce.js')}}"></script>
+        <script type="text/javascript">
+            tinyMCE.init({
+            // General options
+            mode : "textareas",
+            theme : "advanced",
+            width : "600",
+            height : "500",
+            });
+        </script>
+{%endblock%}
 {%block main%}
-    <center>Ini halaman Data Berita!!</center>
+    <p class="pull-center">
+        <form class="well2" id="form" method="POST" action="#">
+            <fieldset>
+                <legend><center>Isi Berita</center></legend>
+                <label class="control-label">Judul:</label><br>
+                    <input type="text" name="judul" size="95"><br>
+                <label class="control-label">Body:</label>
+                    <textarea name="Deskripsi Artikel"></textarea>
+                                
+                <div align="center">
+                    <br><button type="submit" class="btn btn-primary" >Tambah</button>
+                </div>
+            </fieldset>
+        </form>
+    </p>
 {%endblock%}

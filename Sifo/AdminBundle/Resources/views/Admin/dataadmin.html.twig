@@ -19,4 +19,31 @@
             </fieldset>
         </form>
     </p>
+    <br>
+    <hr>
+    <br>
+    <p class="pull-center">
+        Data Admin
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Username</th>
+                    <th>Firstname</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for admin in count%}
+                <tr>
+                    {%if admin is iterable%}
+                        {%for detail in admin%}
+                        <td>{{detail}}</td>
+                        {%endfor%}
+                    {%endif%}
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </p>
 {%endblock%}
