@@ -1,5 +1,5 @@
 sifo_main_homepage:
-    pattern:  /main
+    pattern:  /
     defaults: { _controller: SifoMainBundle:Default:index }
 
 sifo_main_studentpage:

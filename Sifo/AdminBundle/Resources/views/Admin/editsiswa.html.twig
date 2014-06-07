@@ -1,0 +1,34 @@
+{% extends 'SifoAdminBundle:Admin:adminlayout.html.twig' %}
+
+{%block main%}
+    <p class="pull-center">
+        <form class="well" id="form" method="POST" action="{{ path('edit_datasiswa', {'id':  siswa.userId  }) }}">
+            <fieldset>
+                <legend>Daftarkan Siswa</legend>
+                <label class="control-label">Username:</label>
+                    <input type="text" id="username" name="username" value="{{siswa.username}}" disabled>
+                <label class="control-label">Name:</label>
+                    <input type="text" id="name" name="name" value="{{siswa.name}}" disabled><br>
+                <label class="control-label">NIS:</label><br>
+                    <input type="text" id="nis" name="nis" value="{{siswa.noId}}" disabled>
+                <label class="control-label">Email:</label>
+                    <input type="text" id="email" name="email" value="{{siswa.email}}">
+                <label class="control-label">Jurusan:</label><br> 
+                    <select name='jurusan'>
+                        <option value=''></option>
+                        <option value='Klasik'>Klasik</option>
+                        <option value='Non Klasik'>Non Klasik</option>
+                    </select><br>
+                <label class="control-label">Kelas:</label>
+                    <select name="kelas">
+                        {%for view in kelas%}
+                        <option value="{{view.namaKelas}}">Kelas {{view.namaKelas}}</option>
+                        {%endfor%}
+                    </select>
+                <div align="center">
+                    <br><button type="submit" class="btn btn-primary" >Tambah</button>
+                </div>
+            </fieldset>
+        </form>
+    </p>
+{%endblock%}

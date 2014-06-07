@@ -21,13 +21,56 @@
                         <option value='Bahasa Indonesia'>Bahasa Indonesia</option>
                         <option value='Bahasa Inggris'>Bahasa Inggris</option>
                     </select>
+                <label class="control-label">Kelas yang diajar:</label><br>
+                {% for cek in kelas %}
+                    <p>
+                    <input type="checkbox" name="kelas" value="{{cek.namaKelas}}"> Kelas{{cek.namaKelas}}
+                    </p>
+                {%endfor%}
                 <label class="control-label">Role: <b><font color="blue">Guru</font></b></label>
                     <input type="hidden" id="roles" name="roles" value="ROLE_TEACHER">
-                
+                    <input type="hidden" id="grup" name="grup" value="guru">
                 <div align="center">
                     <br><button type="submit" class="btn btn-primary" >Tambah</button>
                 </div>
             </fieldset>
         </form>
+    </p>
+    <p class="pull-center">
+        <h3><center>Data Guru</center></h3>
+        {%if guru == null%}
+            <tbody>
+            <center><font color="red">{{error}}</font></center>
+            </tbody>
+        {%endif%}
+        <table  class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Bidang</th>
+                    <th>Kelas</th>
+                    <th><center>Opsi</center></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for view in guru %}
+                <tr>
+                    <td>{{view.userId}}</td>
+                    <td>{{view.name}}</td>
+                    <td>{{view.email}}</td>
+                    <td>{{view.mataPelajaran}}</td>
+                    <td>{{view.class}}</td>
+                    <td><center>
+                        <a href="{{ path('edit_dataguru', {'id':  view.userId  }) }}">edit</a> || 
+                        <a href="#">remove</a>
+                        </center>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        
+        </table>
     </p>
 {%endblock%}

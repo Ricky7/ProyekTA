@@ -1,11 +1,19 @@
 <html>
     <head>
         <title>SMK N 11 Medan</title>
-        {%if is_granted('ROLE_STUDENT')%}
+        {%if is_granted('ROLE_TEACHER')%}
             <script>
                 window.location = "{{ path('sifo_main_studentpage') }}";
             </script>
-        {%endif%}
+            {%elseif is_granted('ROLE_TEACHER')%}
+                <script>
+                    window.location = "{{ path('sifo_main_teacherpage') }}";
+                </script>
+                {%else%}
+                    <script>
+                    window.location = "{{ path('sifo_main_homepage') }}";
+                </script>
+                    {%endif%}
     </head>
     <body>
         <div class="container-fluid">

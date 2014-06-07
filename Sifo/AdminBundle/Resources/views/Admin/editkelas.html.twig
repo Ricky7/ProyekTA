@@ -1,0 +1,18 @@
+{% extends 'SifoAdminBundle:Admin:adminlayout.html.twig' %}
+
+{%block main%}
+    <p class="pull-center">
+        <form class="well" id="form" method="POST" action="{{ path('edit_datakelas', {'id':  kelas.Id  }) }}">
+            <fieldset>
+                <legend>Edit Kelas</legend>
+                <label class="control-label">Kode Kelas :</label>
+                    <input type="text" id="kode" name="kode" value="{{kelas.kodeKelas}}" disabled>
+                <label class="control-label">Nama Kelas :</label>
+                    <input type="text" id="nama" name="nama" value="{{kelas.namaKelas}}">
+                <div align="center">
+                    <br><button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </fieldset>
+        </form>
+    </p>
+{%endblock%}

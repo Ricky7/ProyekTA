@@ -8,7 +8,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SifoMainBundle::layout.html.twig');
+        return $this->render('SifoMainBundle:Default:welcome.html.twig');
     }
     
     public function studentAction()

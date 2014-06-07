@@ -15,6 +15,12 @@
                     <input type="text" id="nis" name="nis">
                 <label class="control-label">Email:</label>
                     <input type="text" id="email" name="email">
+                <label class="control-label">Kelas:</label>
+                    <select name="kelas">
+                        {%for view in kelas%}
+                        <option value="{{view.namaKelas}}">Kelas {{view.namaKelas}}</option>
+                        {%endfor%}
+                    </select>
                 <label class="control-label">Jurusan:</label><br> 
                     <select name='jurusan'>
                         <option value=''></option>
@@ -23,10 +29,48 @@
                     </select><br>
                 <label class="control-label">Role: <b><font color="blue">Siswa</font></b></label>
                     <input type="hidden" id="roles" name="roles" value="ROLE_STUDENT">
+                    <input type="hidden" id="groups" name="grup" value="siswa">
                 <div align="center">
                     <br><button type="submit" class="btn btn-primary" >Tambah</button>
                 </div>
             </fieldset>
         </form>
+    </p>
+    <p class="pull-center">
+        <h3><center>Data Siswa</center></h3>
+        {%if siswa == null%}
+            <tbody>
+            <center><font color="red">{{error}}</font></center>
+            </tbody>
+        {%endif%}
+        <table  class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Kelas</th>
+                    <th>Jurusan</th>
+                    <th><center>Opsi</center></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for view in siswa %}
+                <tr>
+                    <td>{{view.userId}}</td>
+                    <td>{{view.name}}</td>
+                    <td>{{view.email}}</td>
+                    <td>{{view.class}}</td>
+                    <td>{{view.Jurusan}}</td>
+                    <td><center>
+                        <a href="{{ path('edit_datasiswa', {'id':  view.userId  }) }}">edit</a> || 
+                        <a href="#">remove</a>
+                        </center>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        
+        </table>
     </p>
 {%endblock%}

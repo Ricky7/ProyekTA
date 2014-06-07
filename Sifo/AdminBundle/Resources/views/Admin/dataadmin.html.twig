@@ -23,27 +23,43 @@
     <hr>
     <br>
     <p class="pull-center">
-        Data Admin
-        <table>
+        <h3><center>Data Admin</center></h3>
+        {%if admin == null%}
+            <tbody>
+            <center><font color="red">{{error}}</font></center>
+            </tbody>
+        {%endif%}
+        <table  class="table table-bordered">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Username</th>
-                    <th>Firstname</th>
+                    <th>Firsname</th>
                     <th>Password</th>
+                    <th><center>Opsi</center></th>
                 </tr>
             </thead>
             <tbody>
-                {%for admin in count%}
+                {% for view in admin %}
                 <tr>
-                    {%if admin is iterable%}
-                        {%for detail in admin%}
-                        <td>{{detail}}</td>
-                        {%endfor%}
-                    {%endif%}
+                    <td>{{view.id}}</td>
+                    <td>{{view.userName}}</td>
+                    <td>{{view.firstName}}</td>
+                    <td>{{view.password}}</td>
+                    <td><center>
+                        <button type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                        </center>
+                    </td>
                 </tr>
                 {%endfor%}
             </tbody>
+        
         </table>
+    </p>
     </p>
 {%endblock%}

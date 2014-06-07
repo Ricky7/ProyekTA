@@ -22,7 +22,7 @@ class Kelas
     /**
      * @var integer
      */
-    private $kelasId;
+    private $id;
 
 
     /**
@@ -72,12 +72,12 @@ class Kelas
     }
 
     /**
-     * Get kelasId
+     * Get id
      *
      * @return integer 
      */
-    public function getKelasId()
+    public function getId()
     {
-        return $this->kelasId;
+        return $this->id;
     }
 }

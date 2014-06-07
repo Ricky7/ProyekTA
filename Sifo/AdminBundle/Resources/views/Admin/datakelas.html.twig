@@ -17,13 +17,19 @@
     </p>
     <hr>
     <p class="pull-center">
-        Data Admin
-        <table>
+        <center><h3>Data Kelas</h3></center>
+        {%if kelas == null%}
+            <tbody>
+            <center><font color="red">{{error}}</font></center>
+            </tbody>
+        {%endif%}
+        <table  class="table table-bordered">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Kode Kelas</th>
                     <th>Nama Kelas</th>
+                    <th><center>Opsi</center></th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +38,16 @@
                     <td>{{view.id}}</td>
                     <td>{{view.kodeKelas}}</td>
                     <td>{{view.namaKelas}}</td>
+                    <td><center>
+                        <a href="{{ path('edit_datakelas', {'id':  view.id  }) }}">edit</a>
+                        <button type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                        </center>
+                    </td>
                 </tr>
                 {%endfor%}
             </tbody>

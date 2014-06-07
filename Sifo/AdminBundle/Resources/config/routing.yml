@@ -1,5 +1,5 @@
 sifo_admin_homepage:
-    pattern:  /
+    pattern:  /administrator
     defaults: { _controller: SifoAdminBundle:Default:index }
 
 logout:
@@ -33,3 +33,15 @@ admin_dataadmin:
 admin_databerita:
     pattern: /databerita
     defaults: { _controller: SifoAdminBundle:Default:databerita }
+    
+edit_datakelas:
+    pattern: /datakelas/{id}
+    defaults: { _controller: SifoAdminBundle:Admin:editkelas }
+    
+edit_dataguru:
+    pattern: /dataguru/{id}
+    defaults : { _controller: SifoAdminBundle:Admin:editguru }
+    
+edit_datasiswa:
+    pattern: /datasiswa/{id}
+    defaults : { _controller: SifoAdminBundle:Admin:editsiswa }
