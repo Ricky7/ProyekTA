@@ -64,7 +64,7 @@
                     <td>{{view.Jurusan}}</td>
                     <td><center>
                         <a href="{{ path('edit_datasiswa', {'id':  view.userId  }) }}">edit</a> || 
-                        <a href="#">remove</a>
+                        <a href="{{ path('delete_datasiswa', {'id':  view.userId  }) }}">remove</a>
                         </center>
                     </td>
                 </tr>

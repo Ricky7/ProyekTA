@@ -90,3 +90,7 @@ show_nilai:
     pattern:  /nilai
     defaults: { _controller: SifoMainBundle:Kuis:nilai }
     
+show_berita:
+    pattern: /showberita/{id}
+    defaults: { _controller: SifoMainBundle:Default:showberita }
+    

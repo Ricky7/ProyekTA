@@ -134,4 +134,40 @@ class AdminController extends Controller {
             }
         return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));
     }
+    
+    public function deleteguruAction(Request $request, $id)
+    {
+        $guru = $this->getDoctrine()
+                     ->getRepository('SifoAdminBundle:FosUser')
+                     ->find($id);
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->remove($guru);
+        $em->flush();
+           
+        return $this->redirect($this->generateUrl('admin_dataguru'));
+    }
+    
+    public function deletesiswaAction(Request $request, $id)
+    {
+        $siswa = $this->getDoctrine()
+                     ->getRepository('SifoAdminBundle:FosUser')
+                     ->find($id);
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->remove($siswa);
+        $em->flush();
+           
+        return $this->redirect($this->generateUrl('admin_datasiswa'));
+    }
+    
+    public function deleteadminAction(Request $request, $id)
+    {
+        $admin = $this->getDoctrine()
+                     ->getRepository('SifoAdminBundle:Admin')
+                     ->find($id);
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->remove($admin);
+        $em->flush();
+           
+        return $this->redirect($this->generateUrl('admin_dataadmin'));
+    }
 }

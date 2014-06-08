@@ -58,7 +58,7 @@
                     <td>{{view.mataPelajaran}}</td>
                     <td><center>
                         <a href="{{ path('edit_dataguru', {'id':  view.userId  }) }}">edit</a> || 
-                        <a href="#">remove</a>
+                        <a href="{{ path('delete_dataguru', {'id':  view.userId  }) }}">remove</a>
                         </center>
                     </td>
                 </tr>

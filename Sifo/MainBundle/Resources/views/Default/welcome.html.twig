@@ -1,29 +1,27 @@
 {% extends "SifoMainBundle::indexlayout.html.twig" %}
 
 {%block content%}
-    <center>Selamat Datang di Elearning SMK Negeri 11 Medan</center>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <legend><center>Selamat datang di Elearning SMK N 11 Medan</center></legend>
+    <p class="well">
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+    </p>
+    <legend><center>News</center></legend>
+    <ul class="nav navbar well">
+        {%for view in berita%}
+        <li><a href="{{path('show_berita', {'id':  view.Id  })}}" target="_blank"><center>{{view.Judul}}</center></a></li>
+        {%endfor%}
+    </ul>
 {%endblock%}

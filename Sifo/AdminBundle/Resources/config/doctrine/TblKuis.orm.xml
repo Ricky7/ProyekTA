@@ -9,10 +9,10 @@
     <field name="namaGuru" type="string" column="nama_guru" length="20" nullable="false"/>
     <field name="tanggal" type="date" column="tanggal" nullable="false"/>
     <field name="judul" type="string" column="judul" length="100" nullable="false"/>
-    <field name="soal" type="string" column="soal" length="5000" nullable="false"/>
+    <field name="soal" type="string" column="soal" length="20000" nullable="false"/>
     <field name="mataPelajaran" type="string" column="mata_pelajaran" length="20" nullable="false"/>
     <field name="kelas" type="integer" column="kelas" nullable="false"/>
-    <field name="jawaban" type="string" column="jawaban" length="5000" nullable="true"/>
+    <field name="jawaban" type="string" column="jawaban" length="20000" nullable="true"/>
     <field name="nilai" type="integer" column="nilai" nullable="true"/>
     <field name="nisSiswa" type="integer" column="nis_siswa" nullable="true"/>
     <field name="userSiswa" type="string" column="user_siswa" length="20" nullable="true"/>

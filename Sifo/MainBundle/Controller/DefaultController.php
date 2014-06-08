@@ -14,7 +14,28 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SifoMainBundle:Default:welcome.html.twig');
+        $berita = $this->getDoctrine()
+                      ->getRepository('SifoAdminBundle:TblBerita')
+                      ->findAll();
+        
+        if (!$berita) {
+            //throw $this->createNotFoundException('No data found');
+            return $this->render('SifoMainBundle:Default:welcome.html.twig', array('error' => 'data tidak tersedia'));
+        }
+        return $this->render('SifoMainBundle:Default:welcome.html.twig', array('berita' => $berita));
+    }
+    
+    public function showberitaAction($id)
+    {
+        $berita = $this->getDoctrine()
+                      ->getRepository('SifoAdminBundle:TblBerita')
+                      ->find($id);
+        
+        if (!$berita) {
+            //throw $this->createNotFoundException('No data found');
+            return $this->render('SifoMainBundle:Default:showberita.html.twig', array('error' => 'data tidak tersedia'));
+        }
+        return $this->render('SifoMainBundle:Default:showberita.html.twig', array('berita' => $berita));
     }
     
     public function studentAction()
@@ -39,12 +60,9 @@ class DefaultController extends Controller
     
     public function viewmateriAction()
     {
-        //$user = $this->get('security.context')->getToken()->getUser();
-        //$user = getNoId();
         $nis = $this->getUser()->getUsername();
         $tbl = $this->getDoctrine()
                       ->getRepository('SifoAdminBundle:TblMateri')
-                      //->findAll();
                       ->findByGuru($nis);
         
         

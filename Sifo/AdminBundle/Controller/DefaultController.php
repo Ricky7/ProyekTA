@@ -8,6 +8,7 @@ use Sifo\AdminBundle\Modals\Login;
 use Sifo\AdminBundle\Entity\FosUser;
 use Sifo\AdminBundle\Entity\Admin;
 use Sifo\AdminBundle\Entity\Kelas;
+use Sifo\AdminBundle\Entity\TblBerita;
 
 class DefaultController extends Controller {
 
@@ -70,56 +71,12 @@ class DefaultController extends Controller {
             $user->setEnabled(true);
             $user->setRoles(array($roles));
 
-            //$manager->$this->getDoctrine()->getEntityManager();
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
         }
-        /* $user = new FosUser();
-          $userManager = $this->get('fos_user.user_manager');
-          $user = $userManager->createUser();
-
-          $user->setUsername(ucfirst($user->get('username')->getData()));
-          $user->setEmail($email);
-          $user->setPlainPassword($newform->get('password')->getData());
-          $user->setRoles(array($newform->get('roles')->getData()));
-          $user->setEnabled($newform->get('enabled')->getData());
-          $userManager->updateUser($user);
-
-
-
-          $em = $this->getDoctrine()->getManager();
-          $em->persist($user);
-          $em->flush();
-          /*if($request->getMethod()=='POST'){
-          $username=$request->get('username');
-          $usernameCanonical=$request->get('username');
-          $password=$request->get('password');
-          $email=$request->get('email');
-          $emailCanonical=$request->get('email');
-          //$enabled=$request->get('enabled');
-          $roles=$request->get('roles');
-          $salt=$request->get('password');
-          $locked=$request->get('locked');
-          $expired=$request->get('expired');
-          $credentialsExpired=$request->get('credentialsExpired');
-
-          $user = new FosUser();
-          $user->setUsername($username);
-          $user->setUsernameCanonical($usernameCanonical);
-          $user->setPassword(sha($password));
-          $user->setEmail($email);
-          $user->setEmailCanonical($emailCanonical);
-          $user->setEnabled(true);
-          $user->setRoles(Array($roles));
-          $user->setSalt(sha1($salt));
-          $user->setLocked($locked);
-          $user->setExpired($expired);
-          $user->setCredentialsExpired($credentialsExpired);
-          $em=$this->getDoctrine()->getEntityManager();
-          $em->persist($user);
-          $em->flush();
-          } */
+        
         return $this->render('SifoAdminBundle:Admin:adminhome.html.twig');
     }
     
@@ -298,6 +255,22 @@ class DefaultController extends Controller {
     
     public function databeritaAction(Request $request) 
     {
+        if($request->getMethod()=='POST'){
+            $judul=$request->get('judul');
+            $isi=$request->get('isi');
+            $sumber=$request->get('sumber');
+            
+            $c = new TblBerita();
+            $c->setJudul($judul);
+            $c->setIsi($isi);
+            $c->setSumber($sumber);
+            $c->setTanggal(new \DateTime("now"));
+            
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($c);
+            $em->flush();
+        }
+        
         $em = $this->getDoctrine()->getEntityManager();
         $repository = $em->getRepository('SifoAdminBundle:Admin');
         $session = $this->getRequest()->getSession();
@@ -307,11 +280,32 @@ class DefaultController extends Controller {
                 $password = $login->getPassword();
                 $user = $repository->findOneBy(array('userName' => $username, 'password' => $password));
                 if ($user) {
-                    return $this->render('SifoAdminBundle:Admin:databerita.html.twig', array('name' => $user->getFirstName()));
+                    
+                    $berita = $this->getDoctrine()
+                                ->getRepository('SifoAdminBundle:TblBerita')
+                                ->findAll();
+                    if (!$berita) {
+                        //throw $this->createNotFoundException('No data found');
+                        return $this->render('SifoAdminBundle:Admin:databerita.html.twig', array('name' => $user->getFirstName(),'error' => 'data tidak tersedia'));
+                    }
+                    return $this->render('SifoAdminBundle:Admin:databerita.html.twig', array('name' => $user->getFirstName(), 'berita' => $berita));
                 }
             }
         return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));
     }
+    
+    public function deleteberitaAction(Request $request, $id)
+    {
+        $berita = $this->getDoctrine()
+                     ->getRepository('SifoAdminBundle:TblBerita')
+                     ->find($id);
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->remove($berita);
+        $em->flush();
+           
+        return $this->redirect($this->generateUrl('admin_databerita'));
+    }
+    
     public function dataadminAction(Request $request) 
     {
         if($request->getMethod()=='POST'){

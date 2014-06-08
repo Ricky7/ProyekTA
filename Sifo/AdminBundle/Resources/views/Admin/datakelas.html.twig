@@ -1,7 +1,7 @@
 {% extends 'SifoAdminBundle:Admin:adminlayout.html.twig' %}
 
 {%block main%}
-    <p class="pull-center">
+    {#<p class="pull-center">
         <form class="well" id="form" method="POST" action="{{ path('admin_datakelas') }}">
             <fieldset>
                 <legend>Tambahkan Kelas</legend>
@@ -14,7 +14,7 @@
                 </div>
             </fieldset>
         </form>
-    </p>
+    </p>#}
     <hr>
     <p class="pull-center">
         <center><h3>Data Kelas</h3></center>
@@ -28,8 +28,8 @@
                 <tr>
                     <th>No</th>
                     <th>Kode Kelas</th>
-                    <th>Nama Kelas</th>
-                    <th><center>Opsi</center></th>
+                    <th>Tingkat Kelas</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -37,17 +37,12 @@
                 <tr>
                     <td>{{view.id}}</td>
                     <td>{{view.kodeKelas}}</td>
-                    <td>{{view.namaKelas}}</td>
-                    <td><center>
+                    <td>{{view.tingkatKelas}}</td>
+                   {# <td><center>
                         <a href="{{ path('edit_datakelas', {'id':  view.id  }) }}">edit</a>
-                        <button type="button" class="btn btn-default btn-lg">
-                            <span class="glyphicon glyphicon-plus"></span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-lg">
-                            <span class="glyphicon glyphicon-minus"></span>
-                        </button>
+                        
                         </center>
-                    </td>
+                    </td>#}
                 </tr>
                 {%endfor%}
             </tbody>

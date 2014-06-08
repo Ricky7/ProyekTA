@@ -1,7 +1,6 @@
 {% extends 'SifoAdminBundle:Admin:adminlayout.html.twig' %}
 
 {%block main%}
-    <center>Ini halaman Data Admin!!</center>
     <p class="pull-center">
         <form class="well" id="form" method="POST" action="{{ path('admin_dataadmin') }}">
             <fieldset>
@@ -47,12 +46,7 @@
                     <td>{{view.firstName}}</td>
                     <td>{{view.password}}</td>
                     <td><center>
-                        <button type="button" class="btn btn-default btn-lg">
-                            <span class="glyphicon glyphicon-plus"></span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-lg">
-                            <span class="glyphicon glyphicon-minus"></span>
-                        </button>
+                        <a href="{{ path('delete_dataadmin', {'id':  view.Id  }) }}">remove</a>
                         </center>
                     </td>
                 </tr>

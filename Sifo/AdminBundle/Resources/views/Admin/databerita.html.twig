@@ -20,12 +20,33 @@
                 <label class="control-label">Judul:</label><br>
                     <input type="text" name="judul" size="95"><br>
                 <label class="control-label">Body:</label>
-                    <textarea name="Deskripsi Artikel"></textarea>
+                    <textarea name="isi"></textarea>
                                 
                 <div align="center">
                     <br><button type="submit" class="btn btn-primary" >Tambah</button>
                 </div>
+                    <input type="hidden" name="sumber" value="{{name}}">
             </fieldset>
         </form>
     </p>
+    <hr>
+    <legend><center>Daftar Berita</center></legend>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Judul</th>
+                <th>Tanggal</th>
+                <th>Opsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for view in berita %}
+            <tr>
+                <td>{{view.Judul}}</td>
+                <td>{{view.tanggal|date('Y-m-d')}}</td>
+                <td><a href="{{path('delete_berita', {'id':  view.Id  })}}">Remove</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
 {%endblock%}

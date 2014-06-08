@@ -30,9 +30,17 @@ admin_dataadmin:
     pattern: /dataadmin
     defaults: { _controller: SifoAdminBundle:Default:dataadmin }
     
+delete_dataadmin:
+    pattern: /adelete/{id}
+    defaults : { _controller: SifoAdminBundle:Admin:deleteadmin }
+    
 admin_databerita:
     pattern: /databerita
     defaults: { _controller: SifoAdminBundle:Default:databerita }
+    
+delete_berita:
+    pattern: /deleteberita/{id}
+    defaults: { _controller: SifoAdminBundle:Default:deleteberita }
     
 edit_datakelas:
     pattern: /datakelas/{id}
@@ -42,6 +50,15 @@ edit_dataguru:
     pattern: /dataguru/{id}
     defaults : { _controller: SifoAdminBundle:Admin:editguru }
     
+delete_dataguru:
+    pattern: /gdelete/{id}
+    defaults : { _controller: SifoAdminBundle:Admin:deleteguru }
+    
 edit_datasiswa:
     pattern: /datasiswa/{id}
     defaults : { _controller: SifoAdminBundle:Admin:editsiswa }
+    
+delete_datasiswa:
+    pattern: /sdelete/{id}
+    defaults : { _controller: SifoAdminBundle:Admin:deletesiswa }
+    

@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>News</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('bundles/sifoadmin/css/bootstrap-responsive.css')}}">
+            <style type="text/css">
+                body{background-color: #2ecc71;}
+            </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><br><br></div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 well">
+                    <center><label><h3>{{berita.Judul}}</h3></label></center><hr><br>
+                    <label class="pull-right"><h4>{{berita.tanggal|date('d-m-Y')}}</h4></label><br><br>
+                        <label>{{berita.Isi|raw}}</label><br>
+                    <label class="pull-left">Sumber : {{berita.Sumber}}</label>
+                    
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="footer">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <hr>
+                    <p class="muted pull-right">© 2014 Mikroskil. All rights reserved</p>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            
+        </div>
+        
+    <script src="{{asset('bundles/sifoadmin/js/bootstrap.js')}}"></script>
+    <script src="{{asset('bundles/sifoadmin/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('bundles/sifoadmin/js/jquery-2.1.0.js')}}"></script>
+    </body>
+</html>
