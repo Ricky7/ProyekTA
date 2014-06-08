@@ -1,7 +1,7 @@
 <html>
     <head>
-        <title>SMK N 11 Medan</title>
-        {%if is_granted('ROLE_TEACHER')%}
+        <title>Checking</title>
+        {%if is_granted('ROLE_STUDENT')%}
             <script>
                 window.location = "{{ path('sifo_main_studentpage') }}";
             </script>
@@ -16,25 +16,6 @@
                     {%endif%}
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row">
-                {#<h1><center>Header</h1>#}
-                <img src="{{asset('bundles/sifoadmin/image/elearning.jpg')}}" class="img-responsive img-thumbnail" alt="Responsive image logo">
-
-            </div>
-            <div class="row">
-                {%block title%} {%endblock%}
-                {% block sesi %}
-                    <p align="right" class="pull_center">
-                        <font color="red">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </font>
-                        <a href="{{ path('fos_user_security_logout') }}">Logout</a>
-                    </p>
-                {%endblock%}
-            </div>
-        </div>
-
-        <script src="{{asset('bundles/sifoadmin/js/bootstrap.js')}}"></script>
-        <script src="{{asset('bundles/sifoadmin/js/bootstrap.min.js')}}"></script>
-        <script src="{{asset('bundles/sifoadmin/js/jquery-2.1.0.js')}}"></script>    
+           
     </body>
 </html>

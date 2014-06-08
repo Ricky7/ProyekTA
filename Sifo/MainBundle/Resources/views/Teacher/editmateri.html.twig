@@ -1,0 +1,51 @@
+{% extends 'SifoMainBundle:Teacher:teachertemplate.html.twig' %}
+
+{%block stylesheets%}
+        <script type="text/javascript" src="{{asset('bundles/sifoadmin/js/tinymce/tiny_mce.js')}}"></script>
+        <script type="text/javascript">
+            tinyMCE.init({
+            // General options
+            mode : "textareas",
+            theme : "advanced",
+            width : "500",
+            height : "500",
+            });
+        </script>
+{%endblock%}
+
+{%block content%}
+    <legend><center>Edit Materi</center></legend>
+    
+    <form class="well" id="form" method="POST" action="#">
+    <table class="table table-responsive">
+        <tr>
+            <td>Judul</td>
+            <td>:</td>
+            <td><input type="text" name="judul" size="65" value="{{materi.judul}}"></td>
+        </tr>
+        <tr>
+            <td>Isi</td>
+            <td>:</td>
+            <td><textarea name="isi" disabled>{{materi.Isi}}</textarea></td>
+        </tr>
+        <tr>
+            <td>Kelas</td>
+            <td>:</td>
+            <td>
+                <select name="kelas">
+                    {% for cek in kelas %}
+                    <option value='{{cek.tingkatKelas}}'>Kelas {{cek.tingkatKelas}}</option>
+                    {%endfor%}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><center><button type="submit" class="btn btn-primary">Simpan</button></center></td>
+        </tr>
+        
+    </table>
+                
+    </form>
+{%endblock%}

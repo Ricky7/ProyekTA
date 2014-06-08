@@ -1,0 +1,26 @@
+{% extends 'SifoMainBundle:Teacher:teachertemplate.html.twig' %}
+
+{%block content%}
+    <legend><center>Materi</center></legend>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Judul</th>
+                <th>Kelas</th>
+                <th>Opsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for view in tbl %}
+            <tr>
+                <td>{{view.Judul}}</td>
+                <td>{{view.Kelas}}</td>
+                <td><a href="{{path('sifo_editmateri', {'id':  view.Id  })}}">Edit</a> || <a href="{{path('sifo_deletemateri', {'id':  view.Id  })}}">Delete</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <center>
+        <a href="{{path('sifo_createmateri')}}">Buat baru</a>
+    </center>
+{%endblock%}

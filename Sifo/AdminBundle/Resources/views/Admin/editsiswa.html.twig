@@ -4,7 +4,7 @@
     <p class="pull-center">
         <form class="well" id="form" method="POST" action="{{ path('edit_datasiswa', {'id':  siswa.userId  }) }}">
             <fieldset>
-                <legend>Daftarkan Siswa</legend>
+                <legend>Edit Siswa</legend>
                 <label class="control-label">Username:</label>
                     <input type="text" id="username" name="username" value="{{siswa.username}}" disabled>
                 <label class="control-label">Name:</label>
@@ -20,13 +20,13 @@
                         <option value='Non Klasik'>Non Klasik</option>
                     </select><br>
                 <label class="control-label">Kelas:</label>
-                    <select name="kelas">
-                        {%for view in kelas%}
-                        <option value="{{view.namaKelas}}">Kelas {{view.namaKelas}}</option>
-                        {%endfor%}
+                    <select name='kelas'>
+                        <option value='1'>Kelas 1</option>
+                        <option value='2'>Kelas 2</option>
+                        <option value='3'>Kelas 3</option>
                     </select>
                 <div align="center">
-                    <br><button type="submit" class="btn btn-primary" >Tambah</button>
+                    <br><button type="submit" class="btn btn-primary" >Simpan</button>
                 </div>
             </fieldset>
         </form>

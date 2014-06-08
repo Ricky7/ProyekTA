@@ -4,11 +4,89 @@ sifo_main_homepage:
 
 sifo_main_studentpage:
     pattern:  /student
-    defaults: { _controller: SifoMainBundle:Default:student }
+    defaults: { _controller: SifoMainBundle:Siswa:courses }
     
 sifo_main_teacherpage:
     pattern:  /teacher
     defaults: { _controller: SifoMainBundle:Default:teacher }
+    
+sifo_profile_teacherpage:
+    pattern:  /tprofile
+    defaults: { _controller: SifoMainBundle:Default:profileteacher }
+    
+sifo_cek:
+    pattern: /cek
+    defaults: { _controller: SifoMainBundle:Default:cek }
+    
+sifo_viewmateri:
+    pattern: /materi
+    defaults: { _controller: SifoMainBundle:Default:viewmateri }
 
-
-
+sifo_createmateri:
+    pattern: /createmateri
+    defaults: { _controller: SifoMainBundle:Default:createmateri }
+    
+sifo_editmateri:
+    pattern: /editmateri/{id}
+    defaults: { _controller: SifoMainBundle:Default:editmateri }
+    
+sifo_deletemateri:
+    pattern: /deletemateri/{id}
+    defaults: { _controller: SifoMainBundle:Default:deletemateri }
+    
+create_kuis_page:
+    pattern: /createkuis
+    defaults: { _controller: SifoMainBundle:Kuis:createkuis }
+    
+edit_kuis_page:
+    pattern: /editkuis/{id}
+    defaults: { _controller: SifoMainBundle:Kuis:editkuis }
+    
+delete_kuis_page:
+    pattern: /deletekuis/{id}
+    defaults: { _controller: SifoMainBundle:Kuis:deletekuis }
+    
+check_kuis_kelas_satu:
+    pattern: /checkkelassatu
+    defaults: { _controller: SifoMainBundle:Kuis:checkkelassatu }
+    
+check_kuis_kelas_dua:
+    pattern: /checkkelasdua
+    defaults: { _controller: SifoMainBundle:Kuis:checkkelasdua }
+    
+check_kuis_kelas_tiga:
+    pattern: /checkkelastiga
+    defaults: { _controller: SifoMainBundle:Kuis:checkkelastiga }
+    
+sifo_view_courses:
+    pattern: /course/{id}
+    defaults: { _controller: SifoMainBundle:Siswa:viewcourse }
+    
+sifo_profile_studentpage:
+    pattern:  /sprofile
+    defaults: { _controller: SifoMainBundle:Siswa:profilestudent }
+    
+sifo_list_kuispage:
+    pattern:  /listkuis
+    defaults: { _controller: SifoMainBundle:Siswa:listkuis }
+    
+sifo_open_kuispage:
+    pattern:  /openkuis/{id}
+    defaults: { _controller: SifoMainBundle:Siswa:openkuis }
+    
+input_nilai_satu:
+    pattern:  /inputnilai/{id}
+    defaults: { _controller: SifoMainBundle:Kuis:inputnilai1 }
+    
+input_nilai_dua:
+    pattern:  /inputnilai/{id}
+    defaults: { _controller: SifoMainBundle:Kuis:inputnilai2 }
+    
+input_nilai_tiga:
+    pattern:  /inputnilai/{id}
+    defaults: { _controller: SifoMainBundle:Kuis:inputnilai3 }
+    
+show_nilai:
+    pattern:  /nilai
+    defaults: { _controller: SifoMainBundle:Kuis:nilai }
+    

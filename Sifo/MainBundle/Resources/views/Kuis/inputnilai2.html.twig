@@ -1,0 +1,36 @@
+{% extends 'SifoMainBundle:Teacher:teachertemplate.html.twig' %}
+
+{%block content%}
+    <legend><center>Input Nilai Kuis</center></legend>
+    
+    <form class="well" id="form" method="POST" action="#">
+    <table class="table table-responsive">
+        <tr>
+            <td>Judul</td>
+            <td cols="2">{{kuis.Judul}}</td>
+            
+        </tr>
+        <tr>
+            <td>Soal :</td>
+            <td><p>{{kuis.Soal|striptags}}</p></td>
+            
+        </tr>
+        <tr>
+            <td>Jawaban :</td>
+            <td><p>{{kuis.Jawaban|striptags}}</p></td>
+            
+        </tr>
+        <tr>
+            <td>Nilai</td>
+            <td><input type="text" name="nilai"></td>
+        </tr>
+        <tr>
+            <td><center><button type="submit" class="btn btn-primary">Simpan</button></center></td>
+            <td></td>
+        </tr>
+        
+    </table>
+         <input type="hidden" name="status" value="checked">       
+    </form>
+{%endblock%}
+

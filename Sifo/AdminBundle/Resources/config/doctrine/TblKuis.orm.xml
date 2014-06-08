@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Sifo\AdminBundle\Entity\TblKuis" table="tbl_kuis">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userGuru" type="string" column="user_guru" length="20" nullable="false"/>
+    <field name="nipGuru" type="integer" column="nip_guru" nullable="false"/>
+    <field name="namaGuru" type="string" column="nama_guru" length="20" nullable="false"/>
+    <field name="tanggal" type="date" column="tanggal" nullable="false"/>
+    <field name="judul" type="string" column="judul" length="100" nullable="false"/>
+    <field name="soal" type="string" column="soal" length="5000" nullable="false"/>
+    <field name="mataPelajaran" type="string" column="mata_pelajaran" length="20" nullable="false"/>
+    <field name="kelas" type="integer" column="kelas" nullable="false"/>
+    <field name="jawaban" type="string" column="jawaban" length="5000" nullable="true"/>
+    <field name="nilai" type="integer" column="nilai" nullable="true"/>
+    <field name="nisSiswa" type="integer" column="nis_siswa" nullable="true"/>
+    <field name="userSiswa" type="string" column="user_siswa" length="20" nullable="true"/>
+    <field name="namaSiswa" type="string" column="nama_siswa" length="20" nullable="true"/>
+    <field name="status" type="string" column="status" length="10" nullable="false"/>
+  </entity>
+</doctrine-mapping>

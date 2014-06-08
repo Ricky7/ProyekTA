@@ -110,7 +110,7 @@ class FosUser
     private $class;
 
     /**
-     * @var integer
+     * @var string
      */
     private $noId;
 
@@ -123,6 +123,11 @@ class FosUser
      * @var string
      */
     private $mataPelajaran;
+
+    /**
+     * @var string
+     */
+    private $grup;
 
     /**
      * @var integer
@@ -593,7 +598,7 @@ class FosUser
     /**
      * Set noId
      *
-     * @param integer $noId
+     * @param string $noId
      * @return FosUser
      */
     public function setNoId($noId)
@@ -606,7 +611,7 @@ class FosUser
     /**
      * Get noId
      *
-     * @return integer 
+     * @return string 
      */
     public function getNoId()
     {
@@ -657,6 +662,29 @@ class FosUser
     public function getMataPelajaran()
     {
         return $this->mataPelajaran;
+    }
+
+    /**
+     * Set grup
+     *
+     * @param string $grup
+     * @return FosUser
+     */
+    public function setGrup($grup)
+    {
+        $this->grup = $grup;
+
+        return $this;
+    }
+
+    /**
+     * Get grup
+     *
+     * @return string 
+     */
+    public function getGrup()
+    {
+        return $this->grup;
     }
 
     /**

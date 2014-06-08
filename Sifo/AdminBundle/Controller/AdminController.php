@@ -72,12 +72,14 @@ class AdminController extends Controller {
                     }
                             if($request->getMethod()=='POST'){
                                     $userManager = $this->get('fos_user.user_manager');
+                                    $username = $request->get('username');
                                     $email = $request->get('email');
-                                    $kelas = $request->get('kelas');
+                                    $kelas = $request->get('kelas[]');
                                     
                                     //$guru = $userManager->createUser();
                                     //$guru->setPlainPassword($password);
                                     //$userManager->updatePassword($user);
+                                    $guru->setUsername($username);
                                     $guru->setEmail($email);
                                     $guru->setClass($kelas);
                                     $em->flush();

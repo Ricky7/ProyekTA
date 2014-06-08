@@ -1,5 +1,12 @@
-{% extends 'SifoMainBundle::layout.html.twig' %}
+{% extends 'SifoMainBundle:Student:studenttemplate.html.twig' %}
 
-{%block title%}
-    <H1>ini Halaman Murid</H1>
+{%block content%}
+    <legend><center>Courses</center></legend>
+    <br>
+    <ul class="nav well">
+        {%for view in materi%}
+        <li> <a href="{{path('sifo_view_courses', {'id':  view.Id  })}}"><center>{{view.Judul}}</center></a></li>
+        {%endfor%}
+    </ul>
+       
 {%endblock%}

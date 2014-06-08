@@ -80,4 +80,32 @@ class Kelas
     {
         return $this->id;
     }
+    /**
+     * @var integer
+     */
+    private $tingkatKelas;
+
+
+    /**
+     * Set tingkatKelas
+     *
+     * @param integer $tingkatKelas
+     * @return Kelas
+     */
+    public function setTingkatKelas($tingkatKelas)
+    {
+        $this->tingkatKelas = $tingkatKelas;
+
+        return $this;
+    }
+
+    /**
+     * Get tingkatKelas
+     *
+     * @return integer 
+     */
+    public function getTingkatKelas()
+    {
+        return $this->tingkatKelas;
+    }
 }

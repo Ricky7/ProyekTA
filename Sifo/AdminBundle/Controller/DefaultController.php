@@ -154,8 +154,7 @@ class DefaultController extends Controller {
             $roles = $request->get('roles');
             $mapel = $request->get('mapel');
             $grup = $request->get('grup');
-            $kelas = $request->get('kelas');
-
+            
             $user = $userManager->createUser();
             $user->setUsername($username);
             $user->setPlainPassword($password);
@@ -168,8 +167,7 @@ class DefaultController extends Controller {
             $user->setNoId($nip);
             $user->setMataPelajaran($mapel);
             $user->setGrup($grup);
-            $user->setClass($kelas);
-
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
@@ -188,15 +186,12 @@ class DefaultController extends Controller {
                                 ->getRepository('SifoAdminBundle:FosUser')
                                 ->findByGrup('guru');
                     
-                    $kelas = $this->getDoctrine()
-                                ->getRepository('SifoAdminBundle:Kelas')
-                                ->findAll();
                     if (!$guru) {
                         //throw $this->createNotFoundException('No data found');
                         return $this->render('SifoAdminBundle:Admin:dataguru.html.twig', array('name' => $user->getFirstName(), 'guru' => $guru, 'kelas' => $kelas, 'error' => 'data tidak tersedia'));
                     }
                 }
-                return $this->render('SifoAdminBundle:Admin:dataguru.html.twig', array('name' => $user->getFirstName(),'guru' => $guru, 'kelas' => $kelas));
+                return $this->render('SifoAdminBundle:Admin:dataguru.html.twig', array('name' => $user->getFirstName(),'guru' => $guru));
                 
             }
         return $this->render('SifoAdminBundle:Default:index.html.twig', array('name' => 'Expired'));

@@ -1,0 +1,30 @@
+{% extends 'SifoMainBundle:Student:studenttemplate.html.twig' %}
+
+{%block content%}
+    <legend><center>Profile</center></legend>
+    <table class="table table-responsive">
+        <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td><label>{{app.user.name}}</label></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>:</td>
+            <td>{{app.user.email}}</td>
+        </tr>
+        <tr>
+            <td>Profesi</td>
+            <td>:</td>
+            <td>{{app.user.grup}}</td>
+        </tr>
+        <tr>
+            <td>Jurusan</td>
+            <td>:</td>
+            <td>{{app.user.jurusan}}</td>
+        </tr>
+    </table>
+    <center>
+        <a href="{{path('fos_user_change_password')}}">ganti password</a>
+    </center>
+{%endblock%}

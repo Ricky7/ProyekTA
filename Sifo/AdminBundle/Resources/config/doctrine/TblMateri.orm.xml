@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Sifo\AdminBundle\Entity\TblMateri" table="tbl_materi">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="judul" type="string" column="judul" length="100" nullable="false"/>
+    <field name="isi" type="string" column="isi" length="5000" nullable="false"/>
+    <field name="kelas" type="string" column="kelas" length="10" nullable="false"/>
+    <field name="tanggal" type="date" column="tanggal" nullable="false"/>
+    <field name="guru" type="string" column="guru" length="20" nullable="false"/>
+  </entity>
+</doctrine-mapping>

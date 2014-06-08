@@ -1,0 +1,23 @@
+{% extends 'SifoMainBundle:Student:studenttemplate.html.twig' %}
+
+{%block content%}
+    <legend><center>Kuis Tersedia</center></legend>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Judul</th>
+                <th>Kelas</th>
+                <th>Opsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for view in kuis %}
+            <tr>
+                <td>{{view.Judul}}</td>
+                <td>{{view.kelas}}</td>
+                <td><a href="{{path('sifo_open_kuispage', {'id':  view.Id  })}}">Open</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+{%endblock%}

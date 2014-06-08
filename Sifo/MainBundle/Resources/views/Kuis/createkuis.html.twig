@@ -1,0 +1,76 @@
+{% extends 'SifoMainBundle:Teacher:teachertemplate.html.twig' %}
+
+{%block stylesheets%}
+        <script type="text/javascript" src="{{asset('bundles/sifoadmin/js/tinymce/tiny_mce.js')}}"></script>
+        <script type="text/javascript">
+            tinyMCE.init({
+            // General options
+            mode : "textareas",
+            theme : "advanced",
+            width : "500",
+            height : "500",
+            });
+        </script>
+{%endblock%}
+
+{%block side%}{% include "SifoMainBundle:Kuis:menukuis.html.twig" %}{%endblock%}
+
+{%block content%}
+    <legend><center>Buat Kuis</center></legend>
+    <form class="well" id="form" method="POST" action="#">
+    <table class="table table-responsive">
+        <tr>
+            <td>Judul</td>
+            <td>:</td>
+            <td><input type="text" name="judul" size="65"></td>
+        </tr>
+        <tr>
+            <td>Soal</td>
+            <td>:</td>
+            <td><textarea name="soal"></textarea></td>
+        </tr>
+        <tr>
+            <td>Kelas</td>
+            <td>:</td>
+            <td>
+                <select name="kelas">
+                    {% for cek in kelas %}
+                    <option value='{{cek.tingkatKelas}}'>Kelas {{cek.tingkatKelas}}</option>
+                    {%endfor%}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><center><button type="submit" class="btn btn-primary">Simpan</button></center></td>
+        </tr>
+        <input type="hidden" name="userguru" value="{{app.user.username}}">
+        <input type="hidden" name="nipguru" value="{{app.user.noid}}">
+        <input type="hidden" name="namaguru" value="{{app.user.name}}">
+        <input type="hidden" name="mapel" value="{{app.user.matapelajaran}}">
+        <input type="hidden" name="status" value="new">
+    </table>
+    </form>
+    <br>
+    <hr>
+    <legend><center>Daftar Kuis</center></legend>
+    <table class="table table-responsive table-bordered">
+        <thead>
+            <tr>
+                <th>Judul</th>
+                <th>Kelas</th>
+                <th>Opsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for view in tbl%}
+            <tr>
+                <td>{{view.Judul}}</td>
+                <td>{{view.Kelas}}</td>
+                <td><a href="{{path('edit_kuis_page', {'id':  view.Id  })}}">Edit</a> || <a href="{{path('delete_kuis_page', {'id':  view.Id  })}}">Remove</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+{%endblock%}

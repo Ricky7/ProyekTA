@@ -36,7 +36,10 @@
             font:normal 50px fontsatu;
         }
 
-    </style>
+        </style>
+        <style type="text/css">
+            body{background-color: #ecf0f1;}
+        </style>
     </head>
     <body>
         <div class="container-fluid">
@@ -51,12 +54,12 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
-                    <ul class="nav nav-tabs" id="myTab">
+                    <ul class="nav nav-tabs">
                         <li><a href="{{path('sifo_main_homepage')}}" data-toggle="tab">Home</a></li>
                         <li><a href="#" data-toggle="tab">Contact Us</a></li>
                         <li><a href="{{path('fos_user_security_login')}}" data-toggle="tab">Login</a></li>
+                        <li class="pull-right"><a href="{{path('sifo_admin_homepage')}}">Admin</a></li>
                     </ul>
-
                 </div>
                 <div class="col-md-1"></div>
             </div>

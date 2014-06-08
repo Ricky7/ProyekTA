@@ -1,0 +1,24 @@
+{% extends 'SifoMainBundle:Student:studenttemplate.html.twig' %}
+
+{%block content%}
+    <legend><center>Nilai Kuis</center></legend>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Judul</th>
+                <th>Mata Pelajaran</th>
+                <th>Nilai</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {%for view in nilai %}
+            <tr>
+                <td>{{view.Judul}}</td>
+                <td>{{view.mataPelajaran}}</td>
+                <td>{{view.Nilai}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+{%endblock%}

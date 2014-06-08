@@ -5,6 +5,7 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="kodeKelas" type="string" column="kode_kelas" length="4" nullable="false"/>
+    <field name="tingkatKelas" type="integer" column="tingkat_kelas" nullable="false"/>
     <field name="namaKelas" type="string" column="nama_kelas" length="255" nullable="false"/>
   </entity>
 </doctrine-mapping>

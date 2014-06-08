@@ -1,0 +1,27 @@
+{% extends 'SifoMainBundle:Teacher:teachertemplate.html.twig' %}
+
+{%block side%}{% include "SifoMainBundle:Kuis:menukuis.html.twig" %}{%endblock%}
+
+{%block content%}
+    <legend><center>Periksa Kuis Kelas 1</center></legend>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Judul</th>
+                <th>Nis</th>
+                <th>Kelas</th>
+                <th>Opsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for view in tbl %}
+            <tr>
+                <td>{{view.Judul}}</td>
+                <td>{{view.nissiswa}}</td>
+                <td>{{view.kelas}}</td>
+                <td><a href="{{path('input_nilai_satu', {'id':  view.Id  })}}">Input Nilai</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+{%endblock%}

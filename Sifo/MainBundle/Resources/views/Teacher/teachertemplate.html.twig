@@ -1,8 +1,7 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
     <head>
-        <title>Student</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        {%if is_granted('ROLE_STUDENT')==null%}
+        <title>Teacher</title>
+        {%if is_granted('ROLE_TEACHER')==null%}
             <script>
                 window.location = "{{ path('fos_user_security_logout') }}";
             </script>
@@ -15,14 +14,14 @@
                 .login{padding-top: 65px;}
                 .center{float: none; margin-left: auto; margin-right: auto;}
             </style>
-            {%block stylesheets%}{%endblock%}
+        {%block stylesheets%}{%endblock%}
     </head>
     <body>
         <div class="container-fluid">
             <div class="navbar navbar-inverse navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container">
-                        <span><font color="white"><h5>Student Area</h5></font></span>
+                        <span><font color="white"><h5>Teacher Area</h5></font></span>
                     </div>
                 </div>
             </div>
@@ -37,18 +36,17 @@
                         
                         <ul class="nav well">
                             <li><legend><center>User Profile</center></legend></li>
-                            <li><center>Student</center></li>
+                            <li><center>Teacher</center></li>
                             <li><center><img src="{{asset('bundles/sifoadmin/image/user.png')}}" class="img-responsive img-thumbnail" alt="Responsive image"></center></li>
-                            <li><center>NIS : {{app.user.noid}}</center></li>
-                            <li><center><font color="red">{{app.user.name}}</font></center></li>
+                            <li><center><font color="red">{{app.user.name}}</font>({{app.user.noid}})</center></li>
                         </ul>  
                         
                         <ul class="nav well">
                             <li><legend><center>Menu</center></legend></li>
-                            <li> <a href="{{path('sifo_main_studentpage')}}"><center>Home</center></a></li>
-                            <li> <a href="{{path('sifo_profile_studentpage')}}"><center>Profile</center></a></li>
-                            <li> <a href="{{path('show_nilai')}}"><center>Nilai</center></a></li>
-                            <li> <a href="{{path('sifo_list_kuispage')}}"><center>Quiz</center></a></li>
+                            <li> <a href="{{path('sifo_main_teacherpage')}}"><center>Home</center></a></li>
+                            <li> <a href="{{path('sifo_profile_teacherpage')}}"><center>Profile</center></a></li>
+                            <li> <a href="{{path('sifo_viewmateri')}}"><center>Materi</center></a></li>
+                            <li> <a href="{{path('create_kuis_page')}}"><center>Quiz</center></a></li>
                         </ul>
                         {%block side%}
                         {%endblock%}

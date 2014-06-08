@@ -6,8 +6,8 @@
             <fieldset>
                 
                 <legend>Edit Guru</legend>
-                <label class="control-label">Username:</label>
-                    <input type="text" id="username" name="username" value="{{guru.username}}" disabled>
+                <label class="control-label">Username:<font color="red">*</font></label>
+                    <input type="text" id="username" name="username" value="{{guru.username}}">
                 <label class="control-label">Name:</label>
                     <input type="text" id="name" name="name" value="{{guru.name}}" disabled><br>
                 <label class="control-label">NIP:</label><br>
@@ -16,12 +16,6 @@
                     <input type="text" id="email" name="email" value="{{guru.email}}">
                 <label class="control-label">Mata Pelajaran:</label>    
                     <input type="text" value="{{guru.mataPelajaran}}" disabled>
-                <label class="control-label">Kelas yang diajar:<font color="red">*</font></label><br>
-                {% for cek in kelas %}
-                    <p>
-                    <input type="checkbox" name="kelas" value="{{cek.namaKelas}}"> Kelas {{cek.namaKelas}}
-                    </p>
-                {%endfor%}
                 <div align="center">
                     <br><button type="submit" class="btn btn-primary" >Simpan</button>
                 </div>
